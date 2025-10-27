@@ -10,13 +10,12 @@ const Profile = () => {
   // const isLoggedIn = useSelector();
   const [Profile, setProfile] = useState();
   const headers = {
-    id: localStorage.getItem("id"),
-    authorization: `Bearer ${localStorage.getItem("token")}`,
-  };
+  Authorization: `Bearer ${localStorage.getItem("token")}`,
+};
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:1000/api/v1/get-user-information",
+        "https://bookstore-with-admin.onrender.com/api/v1/get-user-information",
         { headers }
       );
       // console.log(response)

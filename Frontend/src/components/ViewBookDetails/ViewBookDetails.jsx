@@ -18,7 +18,7 @@ const ViewDataDetails = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `http://localhost:1000/api/v1/get-book-by-id/${id}`
+        `https://bookstore-with-admin.onrender.com/api/v1/get-book-by-id/${id}`
       );
 
       setData(response.data.data);
@@ -32,7 +32,7 @@ const ViewDataDetails = () => {
   };
   const handleFavourite = async () => {
     const response = await axios.put(
-      "http://localhost:1000/api/v1/add-book-to-favourite",
+      "https://bookstore-with-admin.onrender.com/api/v1/add-book-to-favourite",
       {},
       { headers }
     );
@@ -40,7 +40,7 @@ const ViewDataDetails = () => {
   };
   const handleCart = async () => {
     const response = await axios.put(
-      "http://localhost:1000/api/v1/add-to-cart",
+      "https://bookstore-with-admin.onrender.com/api/v1/add-to-cart",
       {},
       { headers }
     );
@@ -48,7 +48,7 @@ const ViewDataDetails = () => {
   };
   const deleteBook = async () => {
     const response = axios.delete(
-      "http://localhost:1000/api/v1/delete-book",
+      "https://bookstore-with-admin.onrender.com/api/v1/delete-book",
       { headers }
     );
     alert(response.data.message);
