@@ -63,50 +63,46 @@ Built with a clean UI and real-time API integration between the frontend and bac
 ---
 
 ## 🚀 Project Setup (for local development)
+1️⃣ Clone the repository 
 
-### 1️⃣ Clone the repository
-```bash
-git clone https://github.com/Rakesh-dev07/Book-store-with-admin.git
+git clone https://github.com/Rakesh-dev07/Book-store-with-admin.git <br>
 cd Book-store-with-admin
-2️⃣ Setup the Backend
-bash
-Copy code
-cd Backend
-npm install
-Create a .env file inside the Backend folder:
 
-ini
-Copy code
-PORT=1000
-MONGO_URI=your_mongodb_atlas_connection_string
-JWT_SECRET=yourStrongSecretKey
+2️⃣ Setup the Backend 
+
+cd Backend <br>
+npm install 
+
+Create a .env file inside the Backend folder: <br>
+PORT=1000 <br>
+MONGO_URI=your_mongodb_atlas_connection_string <br>
+JWT_SECRET=yourStrongSecretKey <br>
 NODE_ENV=development
-Start the backend:
 
-bash
-Copy code
+Start the backend: <br>
 npm start
+
 3️⃣ Setup the Frontend
-bash
-Copy code
-cd ../Frontend
-npm install
-npm run dev    # or npm start (depending on your setup)
-Now open your browser and visit:
 
-arduino
-Copy code
+cd ../Frontend <br>
+npm install <br>
+npm run dev ##or npm start (depending on your setup) <br>
+Now open your browser and visit: <br>
 http://localhost:5173
-🌍 Deployment
-Platform	Purpose	Link
-Render	Backend Hosting	https://bookstore-with-admin.onrender.com
-Vercel	Frontend Hosting	https://book-store-with-admin-tau.vercel.app
-MongoDB Atlas	Cloud Database	https://www.mongodb.com/cloud/atlas
 
-📸 Screenshots
-🏠 Home Page
+🌍 Deployment 
 
-🧠 Lessons Learned
+Platform  - Purpose - Link <br>
+Render	Backend Hosting	https://bookstore-with-admin.onrender.com <br>
+Vercel	Frontend Hosting	https://book-store-with-admin-tau.vercel.app <br>
+MongoDB Atlas	Cloud Database	https://www.mongodb.com/cloud/atlas <br>
+
+## 📸 Screenshots  
+
+### 🏠 Home Page  
+![Bookstore Home Screenshot](https://github.com/user-attachments/assets/d057b9ec-dab2-427b-9bb9-ca376d1861a9)
+
+🧠 What i Learned <br>
 Handling authentication with JWT and Google Login.
 
 Connecting a live React frontend with an Express backend.
