@@ -53,46 +53,53 @@ router.post("/sign-up", async (req, res) => {
     }
 });
 
-//sign-in
+// sign-in
 router.post("/sign-in", async (req, res) => {
     try {
         const { username, password } = req.body;
 
+        // 1. Find user
         const existingUser = await User.findOne({ username });
         if (!existingUser) {
-            res.status(400).json({ message: "Invalid credentials" });
+            return res.status(400).json({ message: "Invalid credentials" });
         }
 
-        await bcrypt.compare(password, existingUser.password, (err, data) => {
-            if (data) {
-                const authClaims = [
-                    { name: existingUser.username },
-                    { role: existingUser.role },
-                ];
-                const token = jwt.sign({ authClaims }, "bookStore123", {
-                    expiresIn: "30d",
-                });
-                res
-                    .status(200)
-                    .json({
-                        id: existingUser._id,
-                        role: existingUser.role,
-                        token: token,
-                    });
-            } else {
-                res.status(400).json({ message: "Invalid credentials" });
-            }
+        // 2. Compare password (use await, not callback)
+        const isMatch = await bcrypt.compare(password, existingUser.password);
+        if (!isMatch) {
+            return res.status(400).json({ message: "Invalid credentials" });
+        }
+
+        // 3. Generate JWT token
+        const token = jwt.sign(
+            {
+                id: existingUser._id,
+                username: existingUser.username,
+                role: existingUser.role,
+            },
+            process.env.JWT_SECRET,
+            { expiresIn: "30d" }
+        );
+
+        // 4. Send success response
+        return res.status(200).json({
+            id: existingUser._id,
+            role: existingUser.role,
+            token: token,
         });
+
     } catch (error) {
-        res.status(500).json({ message: "Internal server error" });
+        console.error("Login error:", error);
+        return res.status(500).json({ message: "Internal server error" });
     }
 });
+
 
 //get user infromaton
 router.get("/get-user-information", authenticateToken, async (req, res) => {
     try {
-        const { id } = req.headers;
-        const data = await User.findById(id).select("-password");
+        const userId = req.user.id;
+        const data = await User.findById(userId).select("-password");
         return res.status(200).json(data);
     } catch (error) {
         res.status(500).json({ message: "Internal server error" });

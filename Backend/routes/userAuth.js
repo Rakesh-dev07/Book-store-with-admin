@@ -9,13 +9,11 @@ const authenticateToken = (req, res, next) => {
     }
 
     // Use environment variable for the secret
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
-            return res
-                .status(403)
-                .json({ message: "Token expired. Please sign in again" });
+            return res.status(403).json({ message: "Token expired or invalid" });
         }
-        req.user = user;
+        req.user = decoded; // decoded contains id, username, role
         next();
     });
 };
