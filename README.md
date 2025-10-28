@@ -64,39 +64,39 @@ Built with a clean UI and real-time API integration between the frontend and bac
 
 ## 🚀 Project Setup (for local development)
 1️⃣ Clone the repository 
-
-git clone https://github.com/Rakesh-dev07/Book-store-with-admin.git <br>
+```
+git clone https://github.com/Rakesh-dev07/Book-store-with-admin.git
 cd Book-store-with-admin
-
+```
 2️⃣ Setup the Backend 
-
-cd Backend <br>
+```
+cd Backend 
 npm install 
 
-Create a .env file inside the Backend folder: <br>
-PORT=1000 <br>
-MONGO_URI=your_mongodb_atlas_connection_string <br>
-JWT_SECRET=yourStrongSecretKey <br>
+Create a .env file inside the Backend folder: 
+PORT=1000 
+MONGO_URI=your_mongodb_atlas_connection_string 
+JWT_SECRET=yourStrongSecretKey 
 NODE_ENV=development
 
-Start the backend: <br>
+Start the backend: 
 npm start
-
+```
 3️⃣ Setup the Frontend
-
-cd ../Frontend <br>
-npm install <br>
-npm run dev ##or npm start (depending on your setup) <br>
-Now open your browser and visit: <br>
+```
+cd ../Frontend 
+npm install 
+npm run dev ##or npm start (depending on your setup) 
+Now open your browser and visit: 
 http://localhost:5173
-
+```
 🌍 Deployment 
-
-Platform  - Purpose - Link <br>
-Render	Backend Hosting	https://bookstore-with-admin.onrender.com <br>
-Vercel	Frontend Hosting	https://book-store-with-admin-tau.vercel.app <br>
-MongoDB Atlas	Cloud Database	https://www.mongodb.com/cloud/atlas <br>
-
+```
+Platform  - Purpose - Link 
+Render	Backend Hosting	https://bookstore-with-admin.onrender.com 
+Vercel	Frontend Hosting	https://book-store-with-admin-tau.vercel.app 
+MongoDB Atlas	Cloud Database	https://www.mongodb.com/cloud/atlas 
+```
 ## 📸 Screenshots  
 
 ### 🏠 Home Page  
